@@ -1,0 +1,2 @@
+Many modules are hidden in this stack. Use "module --show_hidden spider SOFTWARE" if you are not able to find the required software
+/var/spool/slurm/slurmd/state/job56129286/slurm_script: line 16: /cluster/scratch/ppurkayastha/Acads/SCAI/scripts/00_env.sh: No such file or directory

@@ -1,0 +1,11 @@
+# Core
+numpy
+pandas
+scikit-learn
+tqdm
+pyyaml
+joblib
+orjson
+
+# Models
+tabpfn

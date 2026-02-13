@@ -1,0 +1,67 @@
+{
+  "folds": [
+    {
+      "fold": 0,
+      "mae_all": 0.1935104887855568,
+      "mae_all_imputed_only": 0.22425995958805275,
+      "mae_sensory": 0.19500478788598133,
+      "mae_sensory_imputed_only": 0.22489427329742964,
+      "r2_all": 0.8259645059890581,
+      "r2_all_imputed_only": 0.7809934489307829,
+      "r2_sensory": 0.8252157856539533,
+      "r2_sensory_imputed_only": 0.7810436171024688,
+      "rmse_all": 0.38111678126283377,
+      "rmse_all_imputed_only": 0.4102812658524863,
+      "rmse_imputed_only": 0.4102812658524863,
+      "rmse_sensory": 0.38270822024096873,
+      "rmse_sensory_imputed_only": 0.41099293052956165
+    },
+    {
+      "fold": 1,
+      "mae_all": 0.19287713162984077,
+      "mae_all_imputed_only": 0.22360325921359886,
+      "mae_sensory": 0.1942273942744799,
+      "mae_sensory_imputed_only": 0.2240183896555894,
+      "r2_all": 0.8132277735692899,
+      "r2_all_imputed_only": 0.7598433035465493,
+      "r2_sensory": 0.8125528868812932,
+      "r2_sensory_imputed_only": 0.7599717577519127,
+      "rmse_all": 0.39118935848994163,
+      "rmse_all_imputed_only": 0.4211974444574777,
+      "rmse_imputed_only": 0.4211974444574777,
+      "rmse_sensory": 0.39273991917979634,
+      "rmse_sensory_imputed_only": 0.42178549456037046
+    },
+    {
+      "fold": 2,
+      "mae_all": 0.20971799180165646,
+      "mae_all_imputed_only": 0.24196353555157385,
+      "mae_sensory": 0.21137711115210417,
+      "mae_sensory_imputed_only": 0.24280566146160718,
+      "r2_all": 0.8058371414877243,
+      "r2_all_imputed_only": 0.7609667857604011,
+      "r2_sensory": 0.80494826452631,
+      "r2_sensory_imputed_only": 0.7610245230053554,
+      "rmse_all": 0.4012151778107144,
+      "rmse_all_imputed_only": 0.43095752614369126,
+      "rmse_imputed_only": 0.43095752614369126,
+      "rmse_sensory": 0.40291165872631807,
+      "rmse_sensory_imputed_only": 0.43182746397146227
+    }
+  ],
+  "overall": {
+    "mae_all": 0.19869629460372965,
+    "mae_all_imputed_only": 0.22995471631912026,
+    "mae_sensory": 0.20019751419417967,
+    "mae_sensory_imputed_only": 0.23058314272082656,
+    "r2_all": 0.815394838827965,
+    "r2_all_imputed_only": 0.7679675986915575,
+    "r2_sensory": 0.8146264996238164,
+    "r2_sensory_imputed_only": 0.7680465486885946,
+    "rmse_all": 0.39124906366336554,
+    "rmse_all_imputed_only": 0.4209006415667773,
+    "rmse_imputed_only": 0.4209006415667773,
+    "rmse_sensory": 0.39286241294794094,
+    "rmse_sensory_imputed_only": 0.42162360420721895
+  }
+}
