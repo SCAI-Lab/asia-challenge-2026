@@ -1,0 +1,36 @@
+{
+  "artifacts": {
+    "cv_metrics_json": "cv_metrics.json",
+    "oof_npz": "oof_predictions_train.npz",
+    "submission_csv": "predictions_test.csv",
+    "weighted_oof_json": "weighted_oof.json"
+  },
+  "cv_overall": {
+    "mae_all": 0.19135714090577874,
+    "mae_all_imputed_only": 0.22146098466699993,
+    "mae_sensory": 0.19292839184150506,
+    "mae_sensory_imputed_only": 0.22221072569233058,
+    "r2_all": 0.8326698934618679,
+    "r2_all_imputed_only": 0.7896808183219859,
+    "r2_sensory": 0.8319288550973133,
+    "r2_sensory_imputed_only": 0.7896965744999971,
+    "rmse_all": 0.3724932742981496,
+    "rmse_all_imputed_only": 0.4007234079064737,
+    "rmse_imputed_only": 0.4007234079064737,
+    "rmse_sensory": 0.37407891827285217,
+    "rmse_sensory_imputed_only": 0.4014649826045779
+  },
+  "finished_utc": "2026-02-24T17:37:37.174849+00:00",
+  "method": "t2_discrete_seedbag5_proba",
+  "run_id": "t2_discrete_seedbag5_proba__20260224_141548__job58350309__01n1mgw8",
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ],
+  "track": 2,
+  "wrmse_all": 0.3817337240675366,
+  "wrmse_imputed_only": 0.4007739545170091
+}

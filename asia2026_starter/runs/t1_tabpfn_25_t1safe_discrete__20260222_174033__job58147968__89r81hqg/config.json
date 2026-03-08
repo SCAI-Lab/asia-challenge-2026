@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-02-22T17:40:33.788436+00:00",
+  "data_root": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/data/staged",
+  "do_cv": true,
+  "limit_rows": null,
+  "limit_targets": null,
+  "method": "tabpfn_25_t1safe_discrete",
+  "n_splits": 5,
+  "notes": "t1-safe tabpfn discrete: classifier-as-regressor for sensory targets",
+  "run_id": "t1_tabpfn_25_t1safe_discrete__20260222_174033__job58147968__89r81hqg",
+  "run_root": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs",
+  "seed": 42,
+  "track": 1
+}

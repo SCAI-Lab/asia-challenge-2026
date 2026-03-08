@@ -1,0 +1,22 @@
+{
+  "baseline_csv": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/Task1_Discrete.csv",
+  "created_utc": "2026-02-22T15:07:06.539903+00:00",
+  "data_root": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/data/staged",
+  "do_cv": true,
+  "limit_rows": null,
+  "limit_targets": null,
+  "method": "tabpfn_t1safe_discrete_overlay",
+  "n_splits": 5,
+  "notes": "t1-safe tabpfn discrete overlay: partial seed ensemble on top-missing targets",
+  "run_id": "t1_tabpfn_t1safe_discrete_overlay__20260222_150706__job58131847__mnsbhcif",
+  "run_root": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs",
+  "seed": 11,
+  "seeds": [
+    11,
+    22,
+    33,
+    69
+  ],
+  "target_topk": 15,
+  "track": 1
+}

@@ -1,0 +1,40 @@
+{
+  "artifacts": {
+    "submission_csv": "predictions_test_autotabpfn_overlay_T24.csv"
+  },
+  "baseline_csv": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_discrete_seedbag5_proba__20260222_120028__job58116257__zkw773g3/predictions_test.csv",
+  "finished_utc": "2026-03-07T17:26:54.996504+00:00",
+  "max_time": 1500,
+  "method": "t1_autotabpfn_overlay_T24",
+  "n_jobs": 8,
+  "overlay_targets": [
+    "s1ltl",
+    "l3ltl",
+    "s3ltl",
+    "s2ltl",
+    "l5ltl",
+    "l4ltl",
+    "l5ppl",
+    "s1ppl",
+    "l3ppl",
+    "l4ppl",
+    "s2ltr",
+    "s3ltr",
+    "s1ltr",
+    "l5ltr",
+    "l4ltr",
+    "l3ltr",
+    "s2ppl",
+    "s3ppl",
+    "l3ppr",
+    "l4ppr",
+    "s2ppr",
+    "s3ppr",
+    "l5ppr",
+    "s1ppr"
+  ],
+  "presets": "medium_quality",
+  "run_id": "t1_autotabpfn_overlay_T24__20260307_152429__job59446552__bjdt3a0j",
+  "target_topk": 24,
+  "track": 1
+}

@@ -1,0 +1,14 @@
+{
+  "created_utc": "2026-02-15T13:26:29.512919+00:00",
+  "data_root": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/data/staged",
+  "do_cv": false,
+  "limit_rows": null,
+  "limit_targets": null,
+  "method": "tabimpute_plus",
+  "n_splits": 0,
+  "notes": "tabimpute t1: mode=tabimpute_plus, row_chunk=128",
+  "run_id": "t1_tabimpute_plus__20260215_132629__job57230082__6j1sice5",
+  "run_root": "/cluster/scratch/ppurkayastha/Acads/asia2026/runs",
+  "seed": 42,
+  "track": 1
+}

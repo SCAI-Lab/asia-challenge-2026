@@ -1,0 +1,15 @@
+{
+  "mae_all": 0.417637437582016,
+  "mae_all_imputed_only": 0.4819858968257904,
+  "mae_sensory": 0.41911643743515015,
+  "mae_sensory_imputed_only": 0.4813416302204132,
+  "r2_all": 0.5737485976509202,
+  "r2_all_imputed_only": 0.46075679256031754,
+  "r2_sensory": 0.5736484438956123,
+  "r2_sensory_imputed_only": 0.4628754210297187,
+  "rmse_all": 0.5926104784011841,
+  "rmse_all_imputed_only": 0.636629581451416,
+  "rmse_imputed_only": 0.636629581451416,
+  "rmse_sensory": 0.5939596891403198,
+  "rmse_sensory_imputed_only": 0.6365262269973755
+}

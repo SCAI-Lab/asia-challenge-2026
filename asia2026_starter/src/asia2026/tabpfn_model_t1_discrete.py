@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import inspect
+import logging
 import os
 from typing import List, Optional
 
@@ -15,6 +16,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from tabpfn import TabPFNClassifier, TabPFNRegressor
+
+try:
+    from tqdm import tqdm
+except ImportError:  # pragma: no cover
+    tqdm = None
+
+LOG = logging.getLogger("tabpfn_t1_discrete")
 
 
 def _make_numeric_imputer() -> SimpleImputer:
@@ -158,12 +166,18 @@ def tabpfn_predict_multioutput_t1_discrete(
     sensory_targets = set(sensory_target_cols)
     sensory_classes = np.array([0.0, 1.0, 2.0], dtype=np.float32)
     anyana_classes = np.array([0.0, 1.0], dtype=np.float32)
-    for j, col in enumerate(target_cols):
+    log_every = int(os.environ.get("TABPFN_TARGET_LOG_EVERY", "20"))
+    target_iter = enumerate(target_cols)
+    if tqdm is not None:
+        target_iter = tqdm(target_iter, total=len(target_cols), desc="TabPFN targets", unit="target")
+    for j, col in target_iter:
         is_sensory = col in sensory_targets
         is_anyana = col == "anyana"
         if copy_through_cols and col in copy_through_cols:
             out[:, j] = np.nan
             continue
+        if log_every > 0 and (j % log_every == 0):
+            LOG.info("TabPFN target %s/%s: %s", j + 1, len(target_cols), col)
 
         leak_idx = name_to_idx.get(f"num__{col}")
         if leak_idx is not None:

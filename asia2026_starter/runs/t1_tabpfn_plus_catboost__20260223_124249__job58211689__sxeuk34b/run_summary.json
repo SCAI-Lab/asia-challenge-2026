@@ -1,0 +1,19 @@
+{
+  "alphas": [
+    -0.3,
+    0.4,
+    0.5
+  ],
+  "artifacts": {
+    "lambda_-0.30": "predictions_test_lambda-0.30.csv",
+    "lambda_0.40": "predictions_test_lambda0.40.csv",
+    "lambda_0.50": "predictions_test_lambda0.50.csv"
+  },
+  "catboost_run": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_catboost_residual_blocks_gpu__20260223_102649__job58211689__wljm20sv",
+  "finished_utc": "2026-02-23T12:42:49.803910+00:00",
+  "limit_test_rows": null,
+  "method": "t1_tabpfn_plus_catboost",
+  "run_id": "t1_tabpfn_plus_catboost__20260223_124249__job58211689__sxeuk34b",
+  "tabpfn_submission": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_discrete_seedbag5_proba__20260222_120028__job58116257__zkw773g3/predictions_test.csv",
+  "track": 1
+}

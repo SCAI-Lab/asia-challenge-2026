@@ -50,6 +50,8 @@ def _extract_metrics(data: dict) -> dict:
             return data["overall"]
         if "cv_overall" in data and isinstance(data["cv_overall"], dict):
             return data["cv_overall"]
+        if "train_metrics" in data and isinstance(data["train_metrics"], dict):
+            return data["train_metrics"]
     return data
 
 

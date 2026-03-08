@@ -1,0 +1,25 @@
+{
+  "artifacts": {
+    "submission_csv": "predictions_test.csv",
+    "train_metrics_json": "train_metrics.json"
+  },
+  "finished_utc": "2026-02-16T10:16:08.751997+00:00",
+  "method": "tabimpute",
+  "run_id": "t1_tabimpute__20260216_095217__job57301595__d5427bzf",
+  "track": 1,
+  "train_metrics": {
+    "mae_all": 0.4021323323249817,
+    "mae_all_imputed_only": 0.46409180760383606,
+    "mae_sensory": 0.4039756953716278,
+    "mae_sensory_imputed_only": 0.4639529585838318,
+    "r2_all": 0.6165187616101477,
+    "r2_all_imputed_only": 0.5148645802860385,
+    "r2_sensory": 0.6158720289082109,
+    "r2_sensory_imputed_only": 0.5160693756378147,
+    "rmse_all": 0.5620934367179871,
+    "rmse_all_imputed_only": 0.6038456559181213,
+    "rmse_imputed_only": 0.6038456559181213,
+    "rmse_sensory": 0.56378173828125,
+    "rmse_sensory_imputed_only": 0.6041855812072754
+  }
+}

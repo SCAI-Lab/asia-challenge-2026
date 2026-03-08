@@ -1,0 +1,82 @@
+cd /cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter
+
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=1,CONTEXT_N=8 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=1,CONTEXT_N=8 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=1,CONTEXT_N=16 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=1,CONTEXT_N=16 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=1,CONTEXT_N=32 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=1,CONTEXT_N=32 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=1,CONTEXT_N=64 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=1,CONTEXT_N=64 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=1,CONTEXT_N=128 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=1,CONTEXT_N=128 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=1,CONTEXT_N=256 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=1,CONTEXT_N=256 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=1,CONTEXT_N=512 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=1,CONTEXT_N=512 slurm/40_t1_tabimpute.sbatch
+
+
+
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=2,CONTEXT_N=8 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=2,CONTEXT_N=8 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=2,CONTEXT_N=16 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=2,CONTEXT_N=16 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=2,CONTEXT_N=32 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=2,CONTEXT_N=32 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=2,CONTEXT_N=64 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=2,CONTEXT_N=64 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=2,CONTEXT_N=128 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=2,CONTEXT_N=128 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=2,CONTEXT_N=256 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=2,CONTEXT_N=256 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=2,CONTEXT_N=512 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=2,CONTEXT_N=512 slurm/40_t1_tabimpute.sbatch
+
+
+
+
+
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=4,CONTEXT_N=64 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=4,CONTEXT_N=64 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=4,CONTEXT_N=128 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=4,CONTEXT_N=128 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=4,CONTEXT_N=256 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=4,CONTEXT_N=256 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=4,CONTEXT_N=512 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=4,CONTEXT_N=512 slurm/40_t1_tabimpute.sbatch
+
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=8,CONTEXT_N=64 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=8,CONTEXT_N=64 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=8,CONTEXT_N=128 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=8,CONTEXT_N=128 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=8,CONTEXT_N=256 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=8,CONTEXT_N=256 slurm/40_t1_tabimpute.sbatch
+
+sbatch --export=CALIBRATE=1,ROW_CHUNK=8,CONTEXT_N=512 slurm/40_t1_tabimpute.sbatch
+sbatch --export=ROW_CHUNK=8,CONTEXT_N=512 slurm/40_t1_tabimpute.sbatch
+
+
+
+
+

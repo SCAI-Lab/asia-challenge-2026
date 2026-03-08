@@ -1,0 +1,10 @@
+{
+  "base_csv": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/Task1_Discrete.csv",
+  "created_utc": "2026-02-22T19:07:33.674429+00:00",
+  "mask_mode": "observed",
+  "min_delta": 0.0,
+  "min_r2_delta": 0.0,
+  "output_csv": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_compare_discrete_overlay__20260222_190733__jobnojid__zobs1vee/per_target_metrics.csv",
+  "overlay_csv": "/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_tabpfn_t1safe_discrete_overlay__20260222_153107__job58132209__fka95wze/predictions_test_overlay.csv",
+  "split": "test"
+}

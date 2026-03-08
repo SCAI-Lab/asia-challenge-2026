@@ -1,0 +1,25 @@
+{
+  "artifacts": {
+    "cv_metrics_json": "cv_metrics.json",
+    "submission_csv": "predictions_test.csv"
+  },
+  "cv_overall": {
+    "mae_all": 0.1913256611806879,
+    "mae_all_imputed_only": 0.22142455262750213,
+    "mae_sensory": 0.19289586032820757,
+    "mae_sensory_imputed_only": 0.22217325660284765,
+    "r2_all": 0.832639855341872,
+    "r2_all_imputed_only": 0.789643063055182,
+    "r2_sensory": 0.8318987399343268,
+    "r2_sensory_imputed_only": 0.7896588921129388,
+    "rmse_all": 0.3725267067025201,
+    "rmse_all_imputed_only": 0.4007593740512023,
+    "rmse_imputed_only": 0.4007593740512023,
+    "rmse_sensory": 0.3741124306970302,
+    "rmse_sensory_imputed_only": 0.40150094845064
+  },
+  "finished_utc": "2026-02-14T02:47:29.009672+00:00",
+  "method": "tabpfn_25_discrete_bag5",
+  "run_id": "t2_tabpfn_25_discrete_bag5__20260214_014329__job57139435__on5h0rmx",
+  "track": 2
+}

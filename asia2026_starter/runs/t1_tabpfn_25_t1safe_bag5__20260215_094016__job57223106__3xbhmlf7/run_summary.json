@@ -1,0 +1,25 @@
+{
+  "artifacts": {
+    "cv_metrics_json": "cv_metrics.json",
+    "submission_csv": "predictions_test.csv"
+  },
+  "cv_overall": {
+    "mae_all": 0.2363130620487348,
+    "mae_all_imputed_only": 0.27272354065367194,
+    "mae_sensory": 0.23837357167302492,
+    "mae_sensory_imputed_only": 0.27376431462300166,
+    "r2_all": 0.7517548128758245,
+    "r2_all_imputed_only": 0.6859493033224673,
+    "r2_sensory": 0.7506495736376534,
+    "r2_sensory_imputed_only": 0.6858642896605869,
+    "rmse_all": 0.4522482285928062,
+    "rmse_all_imputed_only": 0.4858411810861824,
+    "rmse_imputed_only": 0.4858411810861824,
+    "rmse_sensory": 0.45423238262866955,
+    "rmse_sensory_imputed_only": 0.48678530436834055
+  },
+  "finished_utc": "2026-02-15T10:14:49.705364+00:00",
+  "method": "tabpfn_25_t1safe_bag5",
+  "run_id": "t1_tabpfn_25_t1safe_bag5__20260215_094016__job57223106__3xbhmlf7",
+  "track": 1
+}
