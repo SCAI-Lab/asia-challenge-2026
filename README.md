@@ -49,10 +49,10 @@
 
 ## Track 1 missingness plots (bar)
 Train:
-![Track 1 missingness (train)](runs/t1_missingness_report__20260306_164147__jobnojid__dzzo0rot/missingness_train_bar.png)
+![Track 1 missingness (train)](asia2026_starter/runs/t1_missingness_report__20260306_164147__jobnojid__dzzo0rot/missingness_train_bar.png)
 
 Test:
-![Track 1 missingness (test)](runs/t1_missingness_report__20260306_164147__jobnojid__dzzo0rot/missingness_test_bar.png)
+![Track 1 missingness (test)](asia2026_starter/runs/t1_missingness_report__20260306_164147__jobnojid__dzzo0rot/missingness_test_bar.png)
 
 ## Quick start (Slurm)
 ```bash
