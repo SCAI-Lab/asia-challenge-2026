@@ -1,6 +1,0 @@
-file,r2_sensory,rmse_sensory,mae_sensory,r2_all,rmse_all,mae_all,r2_sensory_imputed_only,rmse_sensory_imputed_only,mae_sensory_imputed_only,r2_all_imputed_only,rmse_all_imputed_only,mae_all_imputed_only,rmse_imputed_only
-/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_tabimpute__20260216_095026__job57301592__obon7bw2/predictions_test.csv,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0
-/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_tabimpute__20260216_095026__job57301592__obon7bw2/predictions_test_calib1_row1_ctx16_greedy_t01-0.5_t12-1.5.csv,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0
-/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_tabimpute__20260216_095026__job57301592__obon7bw2/predictions_test_calib1_row1_ctx16_greedy_t01-0.5_t12-1.0.csv,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0
-/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_tabimpute__20260216_095026__job57301592__obon7bw2/predictions_test_calib1_row1_ctx16_prior_time_soft_tau-0.10.csv,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0
-/cluster/scratch/ppurkayastha/Acads/SCAI/asia2026_starter/runs/t1_tabimpute__20260216_095026__job57301592__obon7bw2/predictions_test_calib1_row1_ctx16_prior_time_soft_tau-0.20.csv,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,0.0,0.0
