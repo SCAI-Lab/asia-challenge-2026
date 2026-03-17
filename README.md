@@ -28,7 +28,9 @@ We used the following environment, libraries and tools.
 - standard library modules used in the scripts
 - enough GPU memory for TabPFN inference/training loops
 
+> The TabPFN-2.5 pretrained weights used in this work are distributed via Hugging Face under a gated, non-commercial license and can be found [here](https://huggingface.co/Prior-Labs/tabpfn_2_5). Earlier TabPFN-2 weights are available under a more permissive license. 
 >
+> Please note that access to TabPFN-2.5 may require approval from Hugging Face and acceptance of its license terms prior to download.
 
 For this project, we used:
 
@@ -61,20 +63,15 @@ python Method_2/code/run_tabpfn_t2_discrete_seedbag5_proba.py --do-cv 1 --n-spli
 ## Where to look for what
 
 - **You want the big picture** -> read this file, then `Method_1/README.md`, then `Method_2/README.md`.
-- **You want the exact model logic** -> open the script-specific docs under `Method_1/docs/` and `Method_2/docs/`.
 - **You want the exact code** -> open the corresponding files under `Method_1/code/` or `Method_2/code/`.
 - **You want the final CSVs** -> see `Method_1/data/submissions/` and `Method_2/data/submissions/`.
 - **You want support utilities** -> see `utils/`.
 
 ## 4) Recommended reading order
 
-1. this overview,
+1. This overview,
 2. `Method_1/README.md`,
-3. `Method_2/README.md`,
-4. each script doc in `Method_1/docs/`,
-5. `Method_2/docs/run_tabpfn_t2_discrete_seedbag5_proba.md`.
-
-The deeper docs explain the intuition, the rule choices, and why each stage exists.
+3. `Method_2/README.md`
 
 
 

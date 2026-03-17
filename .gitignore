@@ -2,3 +2,7 @@
 */.DS_Store
 */**/.DS_Store
 ASIA Challenge 2026
+*/__pycache__/
+*/**/__pycache__/
+*.pyc
+*/*.pyc
