@@ -5,17 +5,16 @@ This README pack documents the **two Track 2 methods that were actually used as 
 
 | Rank within our Track 2 submissions | Submission file | Public RMSE |
 |---|---|---:|
-| 1 | `Discrete Bag 5 Submission (Method 1)` | **0.38056** |
+| 1 | `Discrete Bag 5 with Post-processing Submission (Method 1)` | **0.38056** |
 | 2 | `Seed Bag 5 Submission (Method 2)` | **0.38514** |
 
 This package includes:
 
 - one overall README
-- one method-level README for **Method 1: discrete TabPFN bag5**
+- one method-level README for **Method 1: Discrete TabPFN bag5 with Post-processing**
 - one method-level README for **Method 2: discrete TabPFN seedbag5 probability ensemble**
-- four code-level READMEs for the Method 1 family
-- one code-level README for the Method 2 script
 
+> Please note that due to time and submission constraints, we were not able to try out the Post processings on Method 2
 
 ## 2) Environment and compute assumptions
 
@@ -23,11 +22,13 @@ We used the following environment, libraries and tools.
 
 - Python 3.11-class runtime
 - CUDA-enabled PyTorch (`torch`)
-- `tabpfn`
+- `tabpfn` (We used Pretrained TabPFNv2.5 Classifier weights)
 - `numpy`, `pandas`, `scikit-learn`
 - `huggingface_hub`
 - standard library modules used in the scripts
 - enough GPU memory for TabPFN inference/training loops
+
+>
 
 For this project, we used:
 

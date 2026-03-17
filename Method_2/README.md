@@ -34,8 +34,6 @@ That makes Method 2 a valuable second solution family even when Method 1 is stro
 
 ## Core configuration
 
-From the code in `Method_2/code/run_tabpfn_t2_discrete_seedbag5_proba.py`:
-
 - seeds: **[11, 22, 33, 44, 55]**
 - CV seed: **42**
 - CV splits: **5**
@@ -65,39 +63,16 @@ Operational notes recorded for this method:
 - reproduced on **RTX 2080** in **~6 hours**
 - requires the same TabPFN/CUDA environment as Method 1 base model
 
-## Bundled final output
-
-- `data/submissions/predictions_test__t2_discrete_seedbag5_proba__20260224_141548__job58350309__01n1mgw8.csv`
-
 ## What this method is *not*
 
-This method does **not** include the Method 1 post-processing chain in the shipped bundle.
+This method does **not** include the Method 1 post-processing chain in the shipped bundle, due to time and compute constraints.
 
-That is intentional. It was preserved as the cleaner alternative family:
-- same task,
-- same data,
-- same overall discrete target philosophy,
-- but fewer handcrafted structural interventions.
 
-## How to reproduce Method 2
+## How to run the pipelines
 
-### Recommended
+From the top-level `Track_2/` folder:
+
+### Method 2
 ```bash
-sbatch Method_2/slurm/23b_track2_tabpfn_discrete_seedbag5_proba.sbatch
+python Method_2/code/run_tabpfn_t2_discrete_seedbag5_proba.py --do-cv 1 --n-splits 5
 ```
-
-### Direct python
-```bash
-python Method_2/code/run_tabpfn_t2_discrete_seedbag5_proba.py --data-root data --run-root runs --do-cv 1 --n-splits 5
-```
-
-## Things to note for release and verification
-
-- do not publish an HF token,
-- document the need for authorized TabPFN weight access,
-- keep the exact seed list unchanged for faithful reproduction,
-- keep the copy-through + clipping steps unchanged, because they are part of the final prediction contract.
-
-## Read next
-
-- `docs/run_tabpfn_t2_discrete_seedbag5_proba.md`

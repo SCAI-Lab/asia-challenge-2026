@@ -26,16 +26,6 @@ The philosophy is simple:
 - `Track_2/data/metadata_train_2.csv`
 - `Track_2/data/metadata_test_2.csv`
 
-### Bundled outputs
-- base:
-  - `data/submissions/t2_tabpfn_25_discrete_bag5__20260214_014329__job57139435__on5h0rmx.csv`
-- hedge:
-  - `data/submissions/hedge_pairwise_shrink__t2_hedge_pairwise_shrink__20260315_213234__jobnojid__yp2096zc.csv`
-- anchor:
-  - `data/submissions/anchor_correction__t2_anchor_correction__20260315_222231__jobnojid__4chrmkaj.csv`
-- final extend:
-  - `data/submissions/extend_obs_anchor__t2_extend_obs_anchor__20260315_223941__jobnojid__afqqgjrw.csv`
-
 ## Why this method exists
 
 Track 2 is not a generic tabular task. In the bundled data:
@@ -121,34 +111,17 @@ Operational notes for this method:
 - primary GPU: **RTX 4090 (24 GB)**
 - typical runtime recorded for this method: **~1 hour**
 - reproduced on **RTX 2080** in **~2 hours**
-- base TabPFN model run uses conda / CUDA environment
+- base TabPFNv2.5 Classifier model run uses conda / CUDA environment
 - post-processing scripts only need Python + pandas/numpy and can be run in a lighter venv
 
-## How to reproduce Method 1
+## How to run the pipelines
 
-### Recommended
-Use the included sbatch files in this order:
+From the top-level `Track_2/` folder:
 
-```bash
-sbatch Method_1/slurm/23_track2_tabpfn_discrete_bag5.sbatch
-sbatch Method_1/slurm/t2_hedge_pairwise_shrink.sbatch
-sbatch Method_1/slurm/t2_anchor_correction.sbatch
-sbatch Method_1/slurm/t2_extend_obs_anchor.sbatch
-```
-
-### Direct python
+### Method 1
 ```bash
 python Method_1/code/run_tabpfn_t2_discrete_bag5.py
-python Method_1/code/run_t2_hedge_pairwise_shrink.py --base-csv Method_1/data/submissions/t2_tabpfn_25_discrete_bag5__20260214_014329__job57139435__on5h0rmx.csv
-python Method_1/code/run_t2_anchor_correction.py --submission Method_1/data/submissions/hedge_pairwise_shrink__t2_hedge_pairwise_shrink__20260315_213234__jobnojid__yp2096zc.csv
-python Method_1/code/run_t2_extend_obs_anchor.py --submission Method_1/data/submissions/anchor_correction__t2_anchor_correction__20260315_222231__jobnojid__4chrmkaj.csv
+python Method_1/code/run_t2_hedge_pairwise_shrink.py --base-csv <Output of previous run>
+python Method_1/code/run_t2_anchor_correction.py --submission <Output of previous run>
+python Method_1/code/run_t2_extend_obs_anchor.py --submission <Output of previous run>
 ```
-
-## Files to read next
-
-- `docs/run_tabpfn_t2_discrete_bag5.md`
-- `docs/run_t2_hedge_pairwise_shrink.md`
-- `docs/run_t2_anchor_correction.md`
-- `docs/run_t2_extend_obs_anchor.md`
-
-Those files explain, for each script, exactly what was observed in the data and why the rules/weights were chosen.
