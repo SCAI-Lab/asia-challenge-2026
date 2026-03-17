@@ -1,4 +1,4 @@
-# 1) README - Track 2 final methods, environment, compliance, and reproducibility notes
+# 1) Track 2 : final methods, environment, compliance, and reproducibility notes
 
 
 This README pack documents the **two Track 2 methods that were actually used as final competition submissions**.
@@ -60,14 +60,14 @@ python Method_1/code/run_t2_extend_obs_anchor.py --submission <Output of previou
 python Method_2/code/run_tabpfn_t2_discrete_seedbag5_proba.py --do-cv 1 --n-splits 5
 ```
 
-## Where to look for what
+## 4) Where to look for what
 
 - **You want the big picture** -> read this file, then `Method_1/README.md`, then `Method_2/README.md`.
 - **You want the exact code** -> open the corresponding files under `Method_1/code/` or `Method_2/code/`.
 - **You want the final CSVs** -> see `Method_1/data/submissions/` and `Method_2/data/submissions/`.
 - **You want support utilities** -> see `utils/`.
 
-## 4) Recommended reading order
+## 5) Recommended reading order
 
 1. This overview,
 2. `Method_1/README.md`,
