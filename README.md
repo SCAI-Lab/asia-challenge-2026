@@ -1,4 +1,4 @@
-# 1) Track 2 : final methods, environment, compliance, and reproducibility notes
+# 1) Track 2 : Final methods, Environment, and Reproducibility notes
 
 
 This README pack documents the **two Track 2 methods that were actually used as final competition submissions**.
