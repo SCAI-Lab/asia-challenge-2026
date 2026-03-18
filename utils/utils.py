@@ -30,7 +30,7 @@ def ensure_dir(p: Path) -> Path:
 def write_json(path: Path, obj: Any) -> None:
     ensure_dir(path.parent)
     with path.open("w", encoding="utf-8") as f:
-        json.dump(obj, f, indent=2, sort_keys=True)
+        json.dump(obj, f, indent=2, sort_keys=True, default=str)
 
 
 def read_json(path: Path) -> Any:

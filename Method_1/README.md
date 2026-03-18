@@ -20,11 +20,11 @@ The philosophy is simple:
 ## Inputs and outputs
 
 ### Inputs
-- `Track_2/data/features_train_2.csv`
-- `Track_2/data/features_test_2.csv`
-- `Track_2/data/labels_train_2.csv`
-- `Track_2/data/metadata_train_2.csv`
-- `Track_2/data/metadata_test_2.csv`
+- `asia-challenge-2026/data/features_train_2.csv`
+- `asia-challenge-2026/data/features_test_2.csv`
+- `asia-challenge-2026/data/labels_train_2.csv`
+- `asia-challenge-2026/data/metadata_train_2.csv`
+- `asia-challenge-2026/data/metadata_test_2.csv`
 
 ## Why this method exists
 
@@ -116,12 +116,50 @@ Operational notes for this method:
 
 ## How to run the pipelines
 
-From the top-level `Track_2/` folder:
+From the repository root `asia-challenge-2026/`:
 
-### Method 1
+### Method 1 main path
 ```bash
-python Method_1/code/run_tabpfn_t2_discrete_bag5.py
-python Method_1/code/run_t2_hedge_pairwise_shrink.py --base-csv <Output of previous run>
-python Method_1/code/run_t2_anchor_correction.py --submission <Output of previous run>
-python Method_1/code/run_t2_extend_obs_anchor.py --submission <Output of previous run>
+python Method_1/scripts/run_t2_method1_pipeline.py
 ```
+
+### Method 1 manual chain
+```bash
+python Method_1/scripts/run_tabpfn_t2_discrete_bag5.py
+python Method_1/scripts/run_t2_hedge_pairwise_shrink.py --base-csv <Output of previous run>
+python Method_1/scripts/run_t2_anchor_correction.py --base-cv <Output of previous run>
+python Method_1/scripts/run_t2_extend_obs_anchor.py --base-cv <Output of previous run>
+```
+
+The main path is the recommended way to run Method 1. The manual chain is kept for debugging and step-by-step inspection.
+
+## Where results live
+
+Method 1 writes all run outputs under `asia-challenge-2026/runs/` by default.
+
+The pipeline creates one top-level pipeline run folder, then stage folders inside it:
+
+```text
+asia-challenge-2026/runs/<pipeline_run_id>/
+  00_discrete_bag/
+  01_pairwise_shrink/
+  02_anchor_correction/
+  03_extend_obs_anchor/
+  predictions_test.csv
+  pipeline_summary.json
+```
+
+Each stage folder contains its own generated run directory with:
+
+```text
+predictions_test.csv
+run_summary.json
+```
+
+The final Method 1 prediction file is the pipeline-level:
+
+```text
+asia-challenge-2026/runs/<pipeline_run_id>/predictions_test.csv
+```
+
+The same exact final path is also recorded in `pipeline_summary.json` and in the last stage’s `run_summary.json`.

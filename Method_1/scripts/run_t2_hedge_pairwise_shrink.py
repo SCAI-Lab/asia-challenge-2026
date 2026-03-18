@@ -16,7 +16,7 @@ LOGGER = logging.getLogger(__name__)
 
 TRACK2_ROOT = Path(__file__).resolve().parents[2]
 FILES_DIR = TRACK2_ROOT / "files"
-DEFAULT_BASELINE = TRACK2_ROOT / "<Enter TabPFN discrete bag5 csv file here>"
+DEFAULT_BASELINE = FILES_DIR / "t2_tabpfn_25_discrete_bag5__20260214_014329__job57139435__on5h0rmx.csv"
 DEFAULT_DATA_ROOT = TRACK2_ROOT / "data"
 DEFAULT_RUN_ROOT = TRACK2_ROOT / "runs"
 
@@ -144,8 +144,8 @@ def _ensure_no_nans(pred: pd.DataFrame, base: pd.DataFrame, target_cols: List[st
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--base-csv", type=Path, default=DEFAULT_BASELINE)
-    ap.add_argument("--data-root", type=str, default=DEFAULT_DATA_ROOT)
-    ap.add_argument("--run-root", type=str, default=DEFAULT_RUN_ROOT)
+    ap.add_argument("--data-root", type=Path, default=DEFAULT_DATA_ROOT)
+    ap.add_argument("--run-root", type=Path, default=DEFAULT_RUN_ROOT)
     args = ap.parse_args()
 
     data = load_track(track=2, data_root=args.data_root)

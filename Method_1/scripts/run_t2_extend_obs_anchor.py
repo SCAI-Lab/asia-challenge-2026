@@ -15,7 +15,7 @@ LOGGER = logging.getLogger(__name__)
 
 TRACK2_ROOT = Path(__file__).resolve().parents[2]
 FILES_DIR = TRACK2_ROOT / "files"
-DEFAULT_BASELINE = FILES_DIR / "<Enter Anchor-based correction csv file here>"
+DEFAULT_BASELINE = FILES_DIR / "anchor_correction__t2_anchor_correction__20260315_222231__jobnojid__4chrmkaj.csv"
 DEFAULT_FEATURES_TEST = TRACK2_ROOT / "data/features_test_2.csv"
 DEFAULT_FEATURES_TRAIN = TRACK2_ROOT / "data/features_train_2.csv"
 DEFAULT_LABELS_TRAIN = TRACK2_ROOT / "data/labels_train_2.csv"
@@ -83,14 +83,14 @@ def _ensure_no_nans(pred: pd.DataFrame, base: pd.DataFrame, target_cols: List[st
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--submission", type=Path, default=DEFAULT_BASELINE)
+    ap.add_argument("--base-cv", type=Path, default=DEFAULT_BASELINE)
     ap.add_argument("--features-test", type=Path, default=DEFAULT_FEATURES_TEST)
     ap.add_argument("--features-train", type=Path, default=DEFAULT_FEATURES_TRAIN)
     ap.add_argument("--labels-train", type=Path, default=DEFAULT_LABELS_TRAIN)
-    ap.add_argument("--run-root", type=str, default=DEFAULT_RUN_ROOT)
+    ap.add_argument("--run-root", type=Path, default=DEFAULT_RUN_ROOT)
     args = ap.parse_args()
 
-    pred = pd.read_csv(args.submission).sort_values("ID").reset_index(drop=True)
+    pred = pd.read_csv(args.base_cv).sort_values("ID").reset_index(drop=True)
     Xte = pd.read_csv(args.features_test).sort_values("ID").reset_index(drop=True)
     Xtr = pd.read_csv(args.features_train).sort_values("ID").reset_index(drop=True)
     ytr = pd.read_csv(args.labels_train).sort_values("ID").reset_index(drop=True)
@@ -152,7 +152,7 @@ def main() -> None:
     run_summary = {
         "method": method,
         "created_at": utc_now_iso(),
-        "base_csv": str(args.submission),
+        "base_csv": str(args.base_cv),
         "features_test": str(args.features_test),
         "features_train": str(args.features_train),
         "labels_train": str(args.labels_train),

@@ -45,33 +45,74 @@ An exact version of the packages used is described in`requirements.txt`, though 
 
 ## 3) How to run the pipelines
 
-From the top-level `Track_2/` folder:
+From the repository root `asia-challenge-2026/`.
 
-### Method 1
+The scripts expect this default hierarchy unless you pass explicit flags:
+
+- `asia-challenge-2026/data/` for the Track 2 CSV inputs
+- `asia-challenge-2026/files/` for baseline handoff CSVs and saved submissions
+- `asia-challenge-2026/runs/` for run directories and summaries
+
+### Method 1 main path
 ```bash
-python Method_1/code/run_tabpfn_t2_discrete_bag5.py
-python Method_1/code/run_t2_hedge_pairwise_shrink.py --base-csv <Output of previous run>
-python Method_1/code/run_t2_anchor_correction.py --submission <Output of previous run>
-python Method_1/code/run_t2_extend_obs_anchor.py --submission <Output of previous run>
+python Method_1/scripts/run_t2_method1_pipeline.py
+```
+
+### Method 1 manual chain
+```bash
+python Method_1/scripts/run_tabpfn_t2_discrete_bag5.py
+python Method_1/scripts/run_t2_hedge_pairwise_shrink.py --base-csv <Output of previous run>
+python Method_1/scripts/run_t2_anchor_correction.py --base-cv <Output of previous run>
+python Method_1/scripts/run_t2_extend_obs_anchor.py --base-cv <Output of previous run>
 ```
 
 ### Method 2
 ```bash
-python Method_2/code/run_tabpfn_t2_discrete_seedbag5_proba.py --do-cv 1 --n-splits 5
+python Method_2/scripts/run_tabpfn_t2_discrete_seedbag5_proba.py --do-cv 1 --n-splits 5
 ```
 
 ## 4) Where to look for what
 
 - **You want the big picture** -> read this file, then `Method_1/README.md`, then `Method_2/README.md`.
-- **You want the exact code** -> open the corresponding files under `Method_1/code/` or `Method_2/code/`.
+- **You want the exact code** -> open the corresponding files under `Method_1/scripts/` or `Method_2/scripts/`.
 - **You want the final CSVs** -> see `Method_1/data/submissions/` and `Method_2/data/submissions/`.
 - **You want support utilities** -> see `utils/`.
 
-## 5) Recommended reading order
+## 5) Where results live
+
+The default run output root is `asia-challenge-2026/runs/`.
+
+Each run gets its own folder named with a generated run id, typically:
+
+```text
+<method>__<timestamp>__job<slurm_job_id_or_nojid>__<random_suffix>
+```
+
+Inside each run folder, the main result file is:
+
+```text
+predictions_test.csv
+```
+
+Some runs also write extra artifacts such as:
+
+- `run_summary.json`
+- `cv_metrics.json`
+- `weighted_oof.json`
+- `oof_predictions_train.npz`
+
+For Method 1, the pipeline also uses stage folders like `00_discrete_bag/`, `01_pairwise_shrink/`, `02_anchor_correction/`, and `03_extend_obs_anchor/` under the pipeline run directory.
+
+For Method 2, the final predictions are written directly to:
+
+```text
+asia-challenge-2026/runs/<run_id>/predictions_test.csv
+```
+
+If you need the exact final output path for any run, the corresponding `run_summary.json` records it.
+
+## 6) Recommended reading order
 
 1. This overview,
 2. `Method_1/README.md`,
 3. `Method_2/README.md`
-
-
-

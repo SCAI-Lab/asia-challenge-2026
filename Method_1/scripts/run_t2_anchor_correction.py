@@ -15,7 +15,7 @@ LOGGER = logging.getLogger(__name__)
 
 TRACK2_ROOT = Path(__file__).resolve().parents[2]
 FILES_DIR = TRACK2_ROOT / "files"
-DEFAULT_BASELINE = FILES_DIR / "<Enter Hedge pairwise shrink csv file here>"
+DEFAULT_BASELINE = FILES_DIR / "hedge_pairwise_shrink__t2_hedge_pairwise_shrink__20260315_213234__jobnojid__yp2096zc.csv"
 DEFAULT_FEATURES_TEST = TRACK2_ROOT / "data/features_test_2.csv"
 DEFAULT_LABELS_TRAIN = TRACK2_ROOT / "data/labels_train_2.csv"
 DEFAULT_RUN_ROOT = TRACK2_ROOT / "runs"
@@ -89,18 +89,18 @@ def _ensure_no_nans(pred: pd.DataFrame, base: pd.DataFrame, target_cols: List[st
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--submission", type=Path, default=DEFAULT_BASELINE)
+    ap.add_argument("--base-cv", type=Path, default=DEFAULT_BASELINE)
     ap.add_argument("--features-test", type=Path, default=DEFAULT_FEATURES_TEST)
     ap.add_argument("--labels-train", type=Path, default=DEFAULT_LABELS_TRAIN)
-    ap.add_argument("--run-root", type=str, default=DEFAULT_RUN_ROOT)
+    ap.add_argument("--run-root", type=Path, default=DEFAULT_RUN_ROOT)
     args = ap.parse_args()
 
-    pred = pd.read_csv(args.submission)
+    pred = pd.read_csv(args.base_cv)
     Xte = pd.read_csv(args.features_test)
     ytr = pd.read_csv(args.labels_train)
 
     if "ID" not in pred.columns:
-        raise ValueError(f"Missing ID column in {args.submission}")
+        raise ValueError(f"Missing ID column in {args.base_cv}")
     if "ID" not in Xte.columns or "ID" not in ytr.columns:
         raise ValueError("Missing ID in features/labels")
 
@@ -143,7 +143,7 @@ def main() -> None:
     run_summary = {
         "method": method,
         "created_at": utc_now_iso(),
-        "base_csv": str(args.submission),
+        "base_csv": str(args.base_cv),
         "features_test": str(args.features_test),
         "labels_train": str(args.labels_train),
         "submission_csv": str(out_csv),

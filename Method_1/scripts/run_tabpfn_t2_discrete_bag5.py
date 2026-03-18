@@ -413,8 +413,8 @@ def main() -> None:
     LOGGER = logging.getLogger("t2_discrete_bag5")
 
     p = argparse.ArgumentParser()
-    p.add_argument("--data-root", type=str, default=str(DEFAULT_DATA_ROOT))
-    p.add_argument("--run-root", type=str, default=str(DEFAULT_RUN_ROOT))
+    p.add_argument("--data-root", type=Path, default=DEFAULT_DATA_ROOT)
+    p.add_argument("--run-root", type=Path, default=DEFAULT_RUN_ROOT)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--limit-rows", type=int, default=None)
     p.add_argument("--limit-targets", type=int, default=None)

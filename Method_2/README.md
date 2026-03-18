@@ -70,9 +70,34 @@ This method does **not** include the Method 1 post-processing chain in the shipp
 
 ## How to run the pipelines
 
-From the top-level `Track_2/` folder:
+From the repository root `asia-challenge-2026/`:
 
 ### Method 2
 ```bash
-python Method_2/code/run_tabpfn_t2_discrete_seedbag5_proba.py --do-cv 1 --n-splits 5
+python Method_2/scripts/run_tabpfn_t2_discrete_seedbag5_proba.py --do-cv 1 --n-splits 5
 ```
+
+## Where results live
+
+Method 2 writes outputs under `asia-challenge-2026/runs/` by default.
+
+Each run gets a generated run id folder:
+
+```text
+asia-challenge-2026/runs/<run_id>/
+```
+
+The main output file is:
+
+```text
+asia-challenge-2026/runs/<run_id>/predictions_test.csv
+```
+
+If `--do-cv 1` is used, the run folder also includes CV artifacts such as:
+
+- `run_summary.json`
+- `cv_metrics.json`
+- `weighted_oof.json`
+- `oof_predictions_train.npz`
+
+The full output path is recorded in `run_summary.json`.

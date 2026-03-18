@@ -335,12 +335,13 @@ def run_one(
             "finished_utc": utc_now_iso(),
             "track": track,
             "method": method,
+            "run_dir": str(out_dir),
             "seeds": SEEDS,
             "cv_overall": overall_cv,
             "wrmse_imputed_only": weighted_cv.wrmse_imputed_only if weighted_cv else None,
             "wrmse_all": weighted_cv.wrmse_all if weighted_cv else None,
             "artifacts": {
-                "submission_csv": "predictions_test.csv",
+                "submission_csv": str(out_dir / "predictions_test.csv"),
                 "cv_metrics_json": "cv_metrics.json" if do_cv else None,
                 "oof_npz": "oof_predictions_train.npz" if do_cv else None,
                 "weighted_oof_json": "weighted_oof.json" if do_cv else None,
@@ -355,8 +356,8 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 
     p = argparse.ArgumentParser()
-    p.add_argument("--data-root", type=str, default=str(DEFAULT_DATA_ROOT))
-    p.add_argument("--run-root", type=str, default=str(DEFAULT_RUN_ROOT))
+    p.add_argument("--data-root", type=Path, default=DEFAULT_DATA_ROOT)
+    p.add_argument("--run-root", type=Path, default=DEFAULT_RUN_ROOT)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--do-cv", type=int, default=1)
     p.add_argument("--n-splits", type=int, default=CV_SPLITS)
