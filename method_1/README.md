@@ -1,0 +1,173 @@
+# Method 1 — Cross-validated TabPFN with anatomical refinement
+
+## Executive summary
+
+Method 1 is the main **structured refinement chain** in this Track 2 bundle.
+
+It starts from a strong **five-fold discrete TabPFN ensemble** and then adds three increasingly targeted post-processing stages:
+
+1. **base model**: learn a robust target-wise predictor using a five-fold TabPFN ensemble,
+2. **pairwise shrinkage**: softly smooth highly missing symmetric pairs toward each other when both sides are missing,
+3. **anchor correction**: use observed paired follow-up targets to correct one-sided missing targets with hand-selected rules,
+4. **extended anchor correction**: apply a final, small, upward-only adjustment on a narrow set of targets where the anchor suggests the previous stage is still too low.
+
+The philosophy is simple:
+
+- let the base model do the heavy lifting,
+- use ISNCSCI structure only in **small, conservative** ways,
+- and reserve stronger post-processing for target/source pairs where the train data gives a compelling reason.
+
+## Inputs and outputs
+
+### Inputs
+- `asia-challenge-2026/data/features_train_2.csv`
+- `asia-challenge-2026/data/features_test_2.csv`
+- `asia-challenge-2026/data/labels_train_2.csv`
+- `asia-challenge-2026/data/labels_test_2_dummy.csv`
+- `asia-challenge-2026/data/metadata_train_2.csv`
+- `asia-challenge-2026/data/metadata_test_2.csv`
+
+### Included reference submissions
+
+- [`base_model_submission.csv`](data/submissions/base_model_submission.csv)
+- [`pairwise_shrinkage_submission.csv`](data/submissions/pairwise_shrinkage_submission.csv)
+- [`anchor_corrected_submission.csv`](data/submissions/anchor_corrected_submission.csv)
+- [`final_submission.csv`](data/submissions/final_submission.csv)
+
+## Why this method exists
+
+Track 2 is not a generic tabular task. In the bundled data:
+
+- the mean target-feature missingness in test is **0.858**,
+- **80** targets have test missingness at least `0.85`,
+- and **24** targets are fully missing in test.
+
+At the same time, the data contains a lot of useful structure:
+- left/right sensory symmetry,
+- LT/PP within-level agreement,
+- partial follow-up observations in upper/cervical regions,
+- and baseline + motor context already provided by the track.
+
+So Method 1 does **not** try to replace the learned model with hard rules.  
+It uses rules only where the train-set structure is unusually strong.
+
+## Why the base uses a five-fold discrete ensemble
+
+The base script treats the sensory outputs as discrete states and uses TabPFN as a **classifier-style estimator** on each target. This is well matched to the target space:
+
+- sensory outputs are `0/1/2`,
+- `anyana` is binary,
+- and the model should respect the discrete nature of the labels while still producing soft expected values.
+
+The bagging choice is:
+
+- 5 folds,
+- KFold with seed `42`,
+- average test predictions across folds.
+
+The purpose of the five-fold ensemble is to reduce variance and smooth fold-specific idiosyncrasies before structural post-processing.
+
+## Why the three post-processing stages are ordered this way
+
+The order is deliberate.
+
+### Stage 1: pairwise shrinkage first
+This is the broadest but weakest adjustment. It only nudges symmetric / modality-paired values toward each other, and only under strong gating. It is safe enough to run before anchor rules.
+
+### Stage 2: anchor correction second
+Once the pairwise jitter is reduced, targeted one-sided corrections become more reliable. This stage is stronger than stage 1 because it can move one target toward a learned conditional anchor.
+
+### Stage 3: extended anchor correction last
+This is the narrowest and smallest stage. It only fires when:
+- the target is missing,
+- the source is observed and reasonably strong,
+- and the current prediction is still below the anchor by a margin.
+
+This makes it a cleanup step, not a replacement for the earlier stages.
+
+## What actually changed across the chain
+
+Using the submission files included in the bundle:
+
+- **base model → pairwise shrinkage**
+  - changed cells: **18744**
+  - affected rows: **252**
+  - mean abs change on changed cells: **0.002352**
+  - max abs change: **0.039429**
+
+- **pairwise shrinkage → anchor correction**
+  - changed cells: **1775**
+  - affected rows: **252**
+  - mean abs change on changed cells: **0.030209**
+  - max abs change: **0.862269**
+
+- **anchor correction → extended anchor correction**
+  - changed cells: **57**
+  - affected rows: **48**
+  - mean abs change on changed cells: **0.031674**
+  - max abs change: **0.194050**
+
+This is a healthy pattern:
+- stage 1 is broad but tiny,
+- stage 2 is targeted and meaningfully larger,
+- stage 3 is very selective.
+
+## Environment and runtime
+
+Operational notes for this method:
+
+- primary GPU: **RTX 4090 (24 GB)**
+- typical runtime recorded for this method: **~1 hour**
+- reproduced on **RTX 2080** in **~2 hours**
+- base TabPFNv2.5 Classifier model run uses conda / CUDA environment
+- post-processing scripts only need Python + pandas/numpy and can be run in a lighter venv
+
+## How to run the pipelines
+
+From the repository root `asia-challenge-2026/`:
+
+### Method 1 main path
+```bash
+python method_1/scripts/run_pipeline.py
+```
+
+### Method 1 manual chain
+```bash
+python method_1/scripts/train_cross_validated_tabpfn.py
+python method_1/scripts/apply_pairwise_shrinkage.py --base-csv <output-of-previous-run>
+python method_1/scripts/apply_anchor_correction.py --base-csv <output-of-previous-run>
+python method_1/scripts/apply_extended_anchor_correction.py --base-csv <output-of-previous-run>
+```
+
+The main path is the recommended way to run Method 1. The manual chain is kept for debugging and step-by-step inspection.
+
+## Where results live
+
+Method 1 writes all run outputs under `asia-challenge-2026/runs/` by default.
+
+The pipeline creates one top-level pipeline run folder, then stage folders inside it:
+
+```text
+asia-challenge-2026/runs/<pipeline_run_id>/
+  00_base_model/
+  01_pairwise_shrinkage/
+  02_anchor_correction/
+  03_extended_anchor_correction/
+  predictions_test.csv
+  pipeline_summary.json
+```
+
+Each stage folder contains its own generated run directory with:
+
+```text
+predictions_test.csv
+run_summary.json
+```
+
+The final Method 1 prediction file is the pipeline-level:
+
+```text
+asia-challenge-2026/runs/<pipeline_run_id>/predictions_test.csv
+```
+
+The same exact final path is also recorded in `pipeline_summary.json` and in the last stage’s `run_summary.json`.

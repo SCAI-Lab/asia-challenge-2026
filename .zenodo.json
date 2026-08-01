@@ -1,0 +1,22 @@
+{
+  "title": "ASIA 2026 Track 2: Longitudinal ISNCSCI Sensory Reconstruction",
+  "description": "Reproducible implementation of the SCAI Lab solution for longitudinal reconstruction of omitted follow-up ISNCSCI sensory findings in Track 2 of the 2026 ASIA Data Science Challenge.",
+  "upload_type": "software",
+  "version": "v1.0.0",
+  "creators": [
+    {
+      "name": "Purkayastha, Partha Sarathi",
+      "orcid": "0009-0007-8879-7622",
+      "affiliation": "ETH Zürich"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ASIA Data Science Challenge",
+    "ISNCSCI",
+    "spinal cord injury",
+    "TabPFN",
+    "clinical machine learning",
+    "longitudinal reconstruction"
+  ]
+}

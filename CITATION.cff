@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the archived Zenodo release."
+title: "ASIA 2026 Track 2: Longitudinal ISNCSCI Sensory Reconstruction"
+type: software
+version: 1.0.0
+date-released: 2026-08-01
+authors:
+  - family-names: Purkayastha
+    given-names: Partha Sarathi
+    orcid: "https://orcid.org/0009-0007-8879-7622"
+    affiliation: "ETH Zürich"
+repository-code: "https://github.com/SCAI-Lab/asia-challenge-2026"
+license: MIT
+keywords:
+  - ASIA Data Science Challenge
+  - ISNCSCI
+  - spinal cord injury
+  - TabPFN
+  - clinical machine learning
+  - longitudinal reconstruction
+abstract: >-
+  Reproducible implementation of the SCAI Lab solution for longitudinal
+  reconstruction of omitted follow-up ISNCSCI sensory findings in Track 2 of
+  the 2026 ASIA Data Science Challenge.

@@ -1,0 +1,28 @@
+.DS_Store
+**/.DS_Store
+
+# Restricted challenge inputs and generated run artifacts
+/data/
+/files/
+/runs/
+
+# Credentials and local environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python and tooling caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Generated binary evaluation artifacts
+*.npz
